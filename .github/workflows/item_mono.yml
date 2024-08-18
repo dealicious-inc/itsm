@@ -5,6 +5,11 @@ name: itsm_mono
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/mono/**'
+    
   pull_request:
     branches: [main]
     paths:
