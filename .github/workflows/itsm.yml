@@ -5,8 +5,7 @@ name: itsm
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  push:
-    # Inputs the workflow accepts.
+  pull_request:
     branches: [main]
     paths:
       - 'apps/it/**'
