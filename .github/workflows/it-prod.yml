@@ -1,4 +1,4 @@
-name: Sinsnag Talk Dev
+name: it project prod
 
 on:
   pull_request:
