@@ -1,0 +1,66 @@
+name: mono project prod
+
+on:
+  pull_request:
+    branches: 
+      - "xx"
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: '배포할 환경을 선택해주세요'
+        required: true
+        options:
+        - dev
+        - stage
+        - qa
+        - prod
+
+jobs:
+  # This workflow contains a single job called "greet"
+  Build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile
+        run: echo Hello, Dealicious
+
+  DeployDev:
+    name: Deploy to Dev
+    if: github.event_name == 'pull_request'
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: 'http://dev.myapp.com'
+    steps:
+      - name: Deploy
+        run: echo I am developing!
+
+  DeployStaging:
+    name: Deploy to Staging
+    if: github.event.ref == 'refs/heads/main'
+    needs: [Build]
+    runs-on: ubuntu-latest
+    environment:
+      name: Staging
+      url: 'http://test.myapp.com'
+    steps:
+      - name: Deploy
+        run: echo I am developing!
+
+  DeployProd:
+    name: Deploy to Production
+    needs: [DeployStaging]
+    runs-on: ubuntu-latest
+    environment:
+      name: mono-prod
+      url: 'http://www.myapp.com'
+    steps:
+      - name: Deploy
+        run: echo I am deploying!
+
