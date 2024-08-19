@@ -5,15 +5,15 @@ name: itsm
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'apps/it/**'
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - 'apps/it/**'
       
-  pull_request:
-    branches: [main]
-    paths:
-      - 'apps/it/**'
+  # pull_request:
+  #   branches: [main]
+  #   paths:
+  #     - 'apps/it/**'
 
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
