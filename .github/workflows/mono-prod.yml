@@ -11,10 +11,7 @@ on:
         description: '배포할 환경을 선택해주세요'
         required: true
         options:
-        - dev
-        - stage
-        - qa
-        - prod
+        - mono-prod
 
 jobs:
   # This workflow contains a single job called "build"
