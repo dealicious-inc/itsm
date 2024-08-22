@@ -5,3 +5,5 @@
 - [ ] commit message 를 이용한 automation 테스트
 
 - API 완료
+
+- 버그 수정
